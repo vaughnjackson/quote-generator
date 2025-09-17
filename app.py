@@ -5,7 +5,7 @@ import random
 app = Flask(__name__)
 
 # Quotable API configuration
-QUOTABLE_API_BASE = "https://api.quotable.io"
+QUOTABLE_API_BASE = "http://api.quotable.io"
 
 def get_random_quote(tag=None, min_length=None, max_length=None):
     """Fetch random quote from Quotable API"""
