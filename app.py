@@ -53,6 +53,11 @@ def home():
     """Home page with quote categories"""
     return render_template('index.html')
 
+@app.route('/about')
+def about():
+    """About page"""
+    return render_template('about.html')
+
 @app.route('/quote')
 def quote():
     """Display random quote based on category"""
