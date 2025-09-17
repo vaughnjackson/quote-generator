@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}QuoteWise - Find Your Inspiration{% endblock %}
+
+{% block content %}
+<div class="hero-section">
+    <div class="container">
+        <h1>Find Your Daily Inspiration</h1>
+        <p>Discover powerful quotes that motivate, inspire, and drive success</p>
+        
+        <div class="quote-categories">
+            <h2>Choose Your Inspiration</h2>
+            <div class="category-grid">
+                <a href="{{ url_for('quote', category='motivational') }}" class="category-card">
+                    <h3>Motivational</h3>
+                    <p>Fuel your drive and ambition</p>
+                </a>
+                
+                <a href="{{ url_for('quote', category='success') }}" class="category-card">
+                    <h3>Success</h3>
+                    <p>Learn from achievers and leaders</p>
+                </a>
+                
+                <a href="{{ url_for('quote', category='wisdom') }}" class="category-card">
+                    <h3>Wisdom</h3>
+                    <p>Timeless insights for life</p>
+                </a>
+                
+                <a href="{{ url_for('quote', category='business') }}" class="category-card">
+                    <h3>Business</h3>
+                    <p>Entrepreneurial mindset quotes</p>
+                </a>
+                
+                <a href="{{ url_for('quote', category='life') }}" class="category-card">
+                    <h3>Life</h3>
+                    <p>Reflections on living well</p>
+                </a>
+                
+                <a href="{{ url_for('quote') }}" class="category-card random">
+                    <h3>Random</h3>
+                    <p>Surprise me with anything</p>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

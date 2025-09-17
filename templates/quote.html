@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}
+{% if category %}{{ category.title() }} Quote{% else %}Random Quote{% endif %} - QuoteWise
+{% endblock %}
+
+{% block content %}
+<div class="quote-section">
+    <div class="container">
+        <div class="quote-card">
+            {% if quote.api_error %}
+            <div class="offline-notice">
+                <small>⚠️ Showing offline quote - API temporarily unavailable</small>
+            </div>
+            {% endif %}
+            
+            <blockquote>
+                <p>"{{ quote.content }}"</p>
+                <footer>— {{ quote.author }}</footer>
+            </blockquote>
+            
+            {% if quote.tags %}
+            <div class="quote-tags">
+                {% for tag in quote.tags %}
+                <span class="tag">{{ tag }}</span>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+        
+        <div class="quote-actions">
+            <button onclick="getNewQuote('{{ category }}')" class="btn-primary" id="newQuoteBtn">
+                Get Another Quote
+            </button>
+            
+            <button onclick="shareQuote()" class="btn-secondary">
+                Share Quote
+            </button>
+            
+            <a href="{{ url_for('home') }}" class="btn-secondary">
+                Choose Different Category
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}
